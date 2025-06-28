@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Profit Calc</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <label>Crypto Profit</label><br>
+            <center><label>Calculator</label></center>
+        </div>
+        <div class="box">
+            <label>Sell at</label>
+            <p id="targetPrice"></p>
+            <label>To Gain</label>
+            <p id="profit"></p>
+            <label>PROFIT</label>
+            <div class="rst">
+                <a href="/index.html"><button class="close">X</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetPrice = urlParams.get('targetPrice');
+    const profit = urlParams.get('profit'); 
+    document.getElementById('targetPrice').innerText = targetPrice ? targetPrice : "Invalid Data!";
+    document.getElementById('profit').innerText = profit ? profit : "$0";
+</script>
+</html>

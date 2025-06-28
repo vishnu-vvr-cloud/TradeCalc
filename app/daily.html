@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pages/style.css">
+    <title>Daily Compounding</title>
+</head>
+<body>
+    <div class="container">
+       <div class="head">
+        <label>Daily Compounding</label><br>
+        <center><label>Calculator</label></center>
+       </div>
+        <div class="child1">
+            <label>Enter starting amount :</label><br>
+            <input type="number" class="damount" id="investment">
+        </div>
+        <div class="child2">
+            <label>Enter target amount :</label><br>
+            <input type="number" class="dtarget" id="currentPrice">
+        </div>
+        <div class="child3">
+            <label>Enter Daily return rate (%) :</label><br>
+            <input type="number" class="dreturn" id="profit">
+        </div>
+        <div class="child4">
+            <button class="btn" onclick="calculateCompound()">Go!</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+function calculateCompound() {
+  const amountInput = document.querySelector(".damount").value;
+  const targetInput = document.querySelector(".dtarget").value;
+  const returnInput = document.querySelector(".dreturn").value;
+
+  const principal = parseFloat(amountInput);
+  const target = parseFloat(targetInput);
+  const rate = parseFloat(returnInput);
+
+  if (isNaN(principal) || isNaN(target) || isNaN(rate) || principal <= 0 || target <= 0 || rate <= 0) {
+    window.location.href = "info.html";
+    return;
+  }
+
+  const dailyRate = rate / 100;
+  let amount = principal;
+  let days = 0;
+  let progressList = [];
+
+  // Calculate days and track progress every 10th day
+  while (amount < target) {
+    amount *= (1 + dailyRate);
+    days++;
+
+    if (days % 5 === 0 || amount >= target) {
+      progressList.push({ day: days, value: amount.toFixed(2) });
+    }
+  }
+
+  const targetPrice = target.toFixed(2);
+  const profit = (amount - principal).toFixed(2);
+
+  // Save progress to localStorage
+  localStorage.setItem("progressList", JSON.stringify(progressList));
+
+  // Redirect to result page
+  window.location.href = `result.html?targetPrice=${encodeURIComponent(targetPrice)}&profit=${encodeURIComponent(profit)}&days=${days}`;
+}
+</script>
+</html>

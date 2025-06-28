@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../pages/style.css" />
+  <title>Daily Compounding</title>
+</head>
+<body>
+  <!-- 📦 Main Result Container -->
+  <div class="container" id="mainContainer">
+    <div class="head">
+      <label>Compounding</label><br />
+      <center><label>Result</label></center>
+    </div>
+
+    <div class="box">
+      <p>🎯 Target: ₹<span id="targetPrice"></span></p>
+      <p>📅 Days: <span id="days"></span></p>
+
+      <button onclick="toggleExpand()" id="toggleBtn">⬇ Show More</button>
+      <div class="rst">
+        <a href="../app/daily.html"><button class="close">X</button></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📊 Progress View Container OUTSIDE -->
+  <div id="progressContainer" style="display: none;">
+    <div class="box">
+      <label style="color:black;">📊 Progress</label>
+      <div id="progressList"></div>
+      <button onclick="toggleExpand()" id="toggleBtnBack">⬆ Show Less</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  document.getElementById('targetPrice').innerText = urlParams.get('targetPrice') || "N/A";
+  document.getElementById('days').innerText = urlParams.get('days') || "-";
+
+  const progressList = JSON.parse(localStorage.getItem("progressList") || "[]");
+  const container = document.getElementById("progressList");
+
+  progressList.forEach(item => {
+    const p = document.createElement("p");
+    p.textContent = `📅 Day ${item.day}: ₹${item.value}`;
+    container.appendChild(p);
+  });
+
+  function toggleExpand() {
+    const main = document.getElementById("mainContainer");
+    const progress = document.getElementById("progressContainer");
+
+    const isMainVisible = main.style.display !== "none";
+
+    main.style.display = isMainVisible ? "none" : "flex";
+    progress.style.display = isMainVisible ? "block" : "none";
+  }
+</script>
+</html>

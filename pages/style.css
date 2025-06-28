@@ -1,0 +1,268 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    background-color: black;
+    color: lime;
+}
+
+/* Remove number spinner for inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:focus {
+    outline: none; /* Removes the default outline */
+    border-color: initial; /* Resets the border color to its default */
+  }
+a{
+    text-decoration: none;
+    color: lime;
+}
+/* Center content vertically and horizontally */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+}
+
+/* Headline adjustments for responsiveness */
+.head {
+    font-weight: 600;
+    padding: 5px;
+    margin: 15px;
+    font-size: 3rem;
+}
+
+/* Responsive Input Fields */
+input {
+    width: 80%;
+    max-width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: black;
+    color: lime;
+    font-weight: 600;
+    padding: 5px;
+    margin: 15px;
+    font-size: 1.5rem;
+    border: 2px solid lime;
+}
+
+.child1, .child2, .child3 label {
+    font-size: 1rem;
+}
+
+
+/* Button Styling */
+.btn {
+    height: 40px;
+    width: 180px;
+    border-radius: 25px;
+    color: lime;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: none;
+    background-color: black;
+    border: 2px solid lime;
+}
+
+/* Button Hover Effects */
+.child4 button:hover {
+    color: white;
+    background-color: lime;
+    cursor: pointer;
+}
+
+/* Main Content Box */
+.box {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto 20px;  /* Increased top margin and reduced bottom margin */
+}
+
+/* Close Button */
+.box .close {
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 20px;
+    color: lime;
+    border: none;
+}
+
+/* Reset Button Hover */
+.rst button:hover {
+    background-color: lime;
+    color: white;
+}
+
+/* Labels Inside Box */
+.box label {
+    font-size: 2rem;
+    color: black;
+    font-weight: 600;
+}
+
+/* Price Display */
+.box p {
+    font-size: 1.5rem;
+    background-color: black;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+/* Price Section */
+.box #price {
+    background-color: black;
+    padding: 15px;
+    border-radius: 50px;
+}
+
+/* Footer Styling */
+.container p{
+    font-family: monospace;
+}
+
+/* Image Responsiveness */
+
+
+/* Responsive Design with Media Queries */
+@media (max-width: 768px) {
+    .head {
+        font-size: 2.5rem;
+    }
+
+    input {
+        font-size: 1.2rem;
+        width: 90%;
+    }
+
+    .btn {
+        width: 160px;
+        font-size: 1rem;
+    }
+
+    .box {
+        width: 95%;
+        padding: 10px;
+        margin: 130px auto 15px;  /* Adjusted margin for mobile */
+    }
+
+    .box label {
+        font-size: 1.5rem;
+    }
+
+    .box p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .head {
+        font-size: 2rem;  /* Updated font size for mobile */
+    }
+
+    input {
+        height: 35px;
+        font-size: 1rem;
+        width: 90%;  /* Increased width on small screens */
+    }
+
+    .btn {
+        height: 35px;
+        width: 140px;
+        font-size: 1rem;
+    }
+
+    .box {
+        padding: 8px;
+        width: 90%;  /* Adjust box width for small screens */
+        margin: 70px auto 10px;  /* Set top margin to 120px for mobile */
+    }
+
+    .box label {
+        font-size: 1rem;  /* Increased font size for mobile */
+    }
+
+    .box p {
+        font-size: 1.2rem;  /* Increased font size for mobile */
+    }
+}/* 🔁 Scrollable Progress Container */
+#progressContainer {
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: black;
+  padding: 20px;
+}
+
+#progressList p {
+  background-color: black;
+  color: lime;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid lime;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+/* ⬇ Toggle Button Styling */
+#toggleBtn {
+  background-color: black;
+  color: lime;
+  border: 1px solid lime;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+#toggleBtnBack {
+  background-color: black;
+  color: lime;
+  border: 1px solid lime;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+#toggleBtn:hover {
+  background-color: lime;
+  color: black;
+}
+
+/* 📱 Responsive Tweaks */
+@media (max-width: 480px) {
+  #progressList p {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  #toggleBtn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
